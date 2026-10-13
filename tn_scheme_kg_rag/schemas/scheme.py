@@ -1,0 +1,28 @@
+from typing import List, Optional
+from pydantic import BaseModel, Field
+
+class SchemeRecord(BaseModel):
+    scheme_id: str = Field(..., description="Unique scheme identifier code or hash")
+    scheme_name_en: str = Field(..., description="Official scheme name in English")
+    scheme_name_ta: Optional[str] = Field(None, description="Official scheme name in Tamil")
+    department: str = Field(..., description="Implementing department or nodal agency")
+    category: Optional[str] = Field(None, description="Scheme category (e.g., Education, Agriculture, Women Welfare)")
+    description: str = Field(..., description="Detailed description and objectives")
+    eligibility_criteria: List[str] = Field(default_factory=list, description="List of explicit eligibility rules")
+    beneficiary_category: List[str] = Field(default_factory=list, description="Target beneficiary groups")
+    income_condition: Optional[str] = Field(None, description="Income criteria ceiling if stated")
+    age_condition: Optional[str] = Field(None, description="Age restrictions if stated")
+    benefits_amount: Optional[str] = Field(None, description="Financial assistance or subsidy details")
+    subsidy_percentage: Optional[str] = Field(None, description="Subsidy percentage or max amount")
+    required_documents: List[str] = Field(default_factory=list, description="Mandatory documents required")
+    application_procedure: Optional[str] = Field(None, description="Steps or mode of application")
+    application_portal: Optional[str] = Field(None, description="Online portal link or URL")
+    offline_location: Optional[str] = Field(None, description="District/Taluk office offline submission location")
+    deadlines: Optional[str] = Field(None, description="Important application dates or deadlines")
+    go_references: List[str] = Field(default_factory=list, description="Government Order references")
+    helpline_details: Optional[str] = Field(None, description="Contact numbers, emails, or helpdesk info")
+    source_url: str = Field(..., description="Originating official webpage URL")
+    publication_date: Optional[str] = Field(None, description="Source publication or revision date")
+    last_verified_timestamp: str = Field(..., description="ISO timestamp when last verified")
+    extraction_confidence: float = Field(1.0, description="Confidence score of automated extraction")
+    missing_fields: List[str] = Field(default_factory=list, description="Explicit indicators for unprovided details")
