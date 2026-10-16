@@ -1,0 +1,51 @@
+﻿Student_ID,Name,Email,Phone,Course,Fee_Paid,City,Enrolled_Date
+STU1001,Manoj K,INVALID_EMAIL,9876543210,UNKNOWN,TRUE,Chennai,23-05-2025
+STU1002,Priya S,priya.s@yahoo.com,MISSING,Machine Learning,FALSE,Coimbatore,06-05-2025
+STU1003,Ravi Kumar,INVALID_EMAIL,9123456789,Python,TRUE,Madurai,19-02-2025
+STU1004,Anitha R,anitha@gmail.com,9000011111,Machine Learning,FALSE,Chennai,05-04-2025
+STU1005,Karthik,INVALID_EMAIL,MISSING,Python,TRUE,Unknown,08-02-2025
+STU1006,Deepa M,deepam@gmail.com,8123456789,Data Science,TRUE,Salem,09-03-2025
+STU1007,Suresh T,INVALID_EMAIL,7654321098,Python,FALSE,Trichy,14-01-2025
+STU1008,Kavitha,kavitha99@gmail.com,9988776655,Machine Learning,TRUE,Chennai,15-01-2025
+STU1009,Rajesh Kk,INVALID_EMAIL,8877665544,Python,TRUE,Coimbatore,15-05-2025
+STU1010,Nithya R,nithyar@yahoo.com,9765432109,Data Science,FALSE,Madurai,25-04-2025
+STU1011,Arun P,arunp@gmail.com,7788990011,Python,TRUE,Chennai,17-06-2025
+STU1012,Meena D,INVALID_EMAIL,MISSING,Machine Learning,TRUE,Salem,21-02-2025
+STU1013,Santhosh V,santhoshv@gmail.com,9900112233,Python,FALSE,Trichy,26-01-2025
+STU1014,Lakshmi,INVALID_EMAIL,8811223344,Data Science,TRUE,Chennai,07-03-2025
+STU1015,Vijay S,vijays@yahoo.com,9922334455,Machine Learning,TRUE,Coimbatore,24-04-2025
+STU1016,Pooja N,poojan@gmail.com,9090909090,Python,FALSE,Unknown,16-02-2025
+STU1017,Dinesh R,INVALID_EMAIL,8080808080,Data Science,TRUE,Madurai,23-02-2025
+STU1018,Saranya,saranya22@gmail.com,MISSING,Python,TRUE,Chennai,11-02-2025
+STU1019,Bala K,INVALID_EMAIL,7070707070,Machine Learning,FALSE,Salem,12-06-2025
+STU1020,Revathi M,revathim@yahoo.com,9191919191,Machine Learning,TRUE,Trichy,12-06-2025
+STU1021,Muthu S,muthus@gmail.com,8282828282,Python,TRUE,Chennai,24-02-2025
+STU1022,Geetha,INVALID_EMAIL,9393939393,Data Science,FALSE,Coimbatore,08-05-2025
+STU1023,Prasanth J,prasanthj@gmail.com,7474747474,Python,TRUE,Madurai,05-03-2025
+STU1024,Divya P,divyap@yahoo.com,8585858585,Machine Learning,TRUE,Chennai,10-06-2025
+STU1025,Senthil K,INVALID_EMAIL,MISSING,Python,FALSE,Trichy,15-05-2025
+STU1026,Janaki R,janakir@gmail.com,9696969696,Data Science,TRUE,Salem,02-05-2025
+STU1027,Ramesh M,INVALID_EMAIL,7878787878,Python,TRUE,Chennai,01-03-2025
+STU1028,Usha D,ushad@gmail.com,8989898989,Machine Learning,FALSE,Madurai,21-04-2025
+STU1029,Gopal V,INVALID_EMAIL,9010101010,Python,TRUE,Coimbatore,12-01-2025
+STU1030,Thenmozhi,thenmozhi@gmail.com,8121212121,Machine Learning,TRUE,Unknown,13-04-2025
+STU1031,Arjun C,arjunc@gmail.com,7232323232,Python,FALSE,Trichy,15-01-2025
+STU1032,Swetha L,INVALID_EMAIL,MISSING,Data Science,TRUE,Chennai,26-05-2025
+STU1033,Naveen B,naveenb@gmail.com,9343434343,Python,TRUE,Salem,23-06-2025
+STU1034,Mala S,malas@yahoo.com,8454545454,Machine Learning,FALSE,Chennai,21-03-2025
+STU1035,Karthi P,INVALID_EMAIL,7565656565,Python,TRUE,Coimbatore,14-02-2025
+STU1036,Suganya T,suganyt@gmail.com,9676767676,Data Science,TRUE,Madurai,10-04-2025
+STU1037,Venkat R,INVALID_EMAIL,8787878787,Python,FALSE,Trichy,12-02-2025
+STU1038,Indira K,indirak@gmail.com,MISSING,Machine Learning,TRUE,Chennai,01-06-2025
+STU1039,Mohan J,mohanj@yahoo.com,9898989898,Python,TRUE,Salem,23-01-2025
+STU1040,Dharani S,INVALID_EMAIL,7909090909,Data Science,FALSE,Unknown,19-04-2025
+STU1041,Kishore M,kishorem@gmail.com,8010101010,Machine Learning,TRUE,Chennai,21-02-2025
+STU1042,Padma V,INVALID_EMAIL,9121212121,Python,TRUE,Coimbatore,22-03-2025
+STU1043,Balaji T,balajit@gmail.com,7232323232,Data Science,FALSE,Madurai,17-03-2025
+STU1044,Rekha N,rekhan@yahoo.com,MISSING,Python,TRUE,Chennai,05-02-2025
+STU1045,Selvam K,INVALID_EMAIL,8343434343,Machine Learning,TRUE,Salem,28-02-2025
+STU1046,Chitra R,chitrar@gmail.com,9454545454,Machine Learning,FALSE,Trichy,15-03-2025
+STU1047,Ganesh P,INVALID_EMAIL,7565656565,Python,TRUE,Chennai,27-06-2025
+STU1048,Latha S,lathas@gmail.com,8676767676,Data Science,TRUE,Coimbatore,04-04-2025
+STU1049,Suresh B,INVALID_EMAIL,MISSING,Python,FALSE,Madurai,20-04-2025
+STU1050,Ammu K,ammuk@gmail.com,9787878787,Machine Learning,TRUE,Chennai,13-02-2025
