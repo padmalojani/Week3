@@ -1,0 +1,177 @@
+{
+  "name": "Google Sheets to Gmail Automation",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -736,
+        -64
+      ],
+      "id": "27c3b93d-3cae-4948-a4fc-1e49d931cb62",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1SX04wSShr-IlksOsUctLOicrRsFonIiiYtWNUU38GS8",
+          "mode": "list",
+          "cachedResultName": "Home Construction Expenses",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SX04wSShr-IlksOsUctLOicrRsFonIiiYtWNUU38GS8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1844556875,
+          "mode": "list",
+          "cachedResultName": "Corporation Exp",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SX04wSShr-IlksOsUctLOicrRsFonIiiYtWNUU38GS8/edit#gid=1844556875"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -512,
+        -64
+      ],
+      "id": "04456703-49f4-4d24-ad23-66fe6013dabd",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CvjbfBUzz1kfrtod",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3f5f50df-adc1-4d85-b8ae-5c79e604c438",
+              "name": "email_subject",
+              "value": "Expense Summary Report",
+              "type": "string"
+            },
+            {
+              "id": "68da5493-b350-49f7-b931-96839cb3a147",
+              "name": "recipient_email",
+              "value": "padmalojani@gmail.com",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -288,
+        -64
+      ],
+      "id": "9c65275b-2c17-4c9d-b3bc-2f7589010dfc",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst rows = $input.all().map(item => item.json);\n\n// Exclude any existing summary/total row\nconst expenses = rows.filter(row =>\n  String(row.Purpose || \"\").trim().toLowerCase() !== \"total\"\n);\n\nconst total = expenses.reduce((sum, row) => {\n  return sum + (Number(row.Amount) || 0);\n}, 0);\n\nconst lines = expenses.map((row, index) => {\n  const date = row.Date || \"Date not provided\";\n  const purpose = row.Purpose || \"Unspecified\";\n  const amount = Number(row.Amount) || 0;\n\n  return `${index + 1}. ${date} | ${purpose} | ₹${amount.toLocaleString(\"en-IN\")}`;\n});\n\nconst emailBody = [\n  \"EXPENSE SUMMARY REPORT\",\n  \"\",\n  \"Here is your expense summary:\",\n  \"\",\n  ...lines,\n  \"\",\n  `Total expenses: ₹${total.toLocaleString(\"en-IN\")}`,\n  `Number of records: ${expenses.length}`\n].join(\"\\n\");\n\nreturn [{\n  json: {\n    email_subject: \"Expense Summary Report\",\n    recipient_email: \"padmalojani@gmail.com\",\n    email_body: emailBody,\n    total_amount: total,\n    record_count: expenses.length\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -64,
+        -64
+      ],
+      "id": "f2f4e823-f485-4cc7-bfcc-532944f2bab7",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.recipient_email }}",
+        "subject": "={{ $json.email_subject }}",
+        "emailType": "text",
+        "message": "={{ $json.email_body }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        160,
+        -64
+      ],
+      "id": "f0c5c79b-cc02-43a8-9365-45c5efa1cae7",
+      "name": "Send a message",
+      "webhookId": "dea427f4-30ab-439d-b243-1b03ee672b49",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "lGtwokdL1ZpH5QPp",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": true
+  },
+  "versionId": "c38e273b-591f-49ec-a04d-cde16f060895",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "55c967bc7527b06e5ebe27e14e160c2b706e9c36759fcb0b7cb68d7b39d5df23"
+  },
+  "nodeGroups": [],
+  "id": "yYmMVyjWMmCdZrsr",
+  "tags": []
+}
